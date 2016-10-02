@@ -1,109 +1,71 @@
-## How do I install the Code Corps API?
+# How do I install the Code Corps Ember app?
 
 ### Requirements
 
-You will need to install [Docker](https://docs.docker.com/engine/installation/).
+You will need to install the following: 
 
-Here are some direct links if you're on [Mac OS X](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/).
+- [Node.js/npm](https://docs.npmjs.com/getting-started/installing-node) we use the LTS version (v 4.4.7)
+- bower: `npm install -g bower`
+- ember-cli: `npm install -g ember-cli`
 
-Follow those download instructions. Once you can run the `docker` command, you can safely move on.
+Do you use other versions of node.js? Check out [nvm](https://github.com/creationix/nvm)
 
-### Clone this repository
+## Clone this repository
 
-You'll want to [clone this repository](https://help.github.com/articles/cloning-a-repository/) with `git clone https://github.com/code-corps/code-corps-api.git`. If you plan on contributing, you'll want to fork it too!
+You'll want to [clone this repository](https://help.github.com/articles/cloning-a-repository/) with `git clone https://github.com/code-corps/code-corps-ember.git`. If you plan on contributing, you'll want to fork it too!
 
 
 The directory structure will look like the following:
 
 ```shell
-code-corps-api/          # → Root folder for this project
-├── blueprint/
+code-corps-ember/    # → Root folder for this project
+├── app/
 ├── config/
-├── ...                  # → More standard Phoenix files
-├── docker-compose.yml   # → Compose file for configuring Docker containers
-└── Dockerfile           # → Creates base Ruby Docker container
+├── dist/
+├── ...              # → More standard Ember.js files
+...
 ```
 
-### Setup your Docker containers and run the server
+## Setup your dependencies
 
-> Note: We bind to ports 49235 for `web`, 49236 for `test`, and 8081 for `apiary`. Make sure you're not running anything on those ports. We do not expose port 5432 for `postgres` or 9200 for `elasticsearch`.
+> Note: We bind to ports 4200 for Ember and 49152 for livereloading. Make sure you aren't running anything else on these ports.
 
-Go to the `code-corps-api` directory and copy the `.env.example` file:
-
-```
-cd code-corps-api
-cp .env.example .env
-```
-
-Now, you can initialize docker, type:
+Go to the `code-corps-ember/` directory and run:
 
 ```shell
-docker-compose build
-docker-compose up
+npm install
+bower install
 ```
 
-You should now see a lot of output from the Docker processes and will not be able to interact with that terminal window.
+Both commands will install the necessary dependencies and will display output regarding those.
 
-Docker will set up your base Elixir container, as well as containers for:
+### Troubleshooting
 
-- `postgres`
-- `elasticsearch`
-- `web` runs `mix do ecto.create, ecto.migrate, phoenix.server`
-- `test` runs `mix test`
-- `apiary` runs an [Apiary client](https://github.com/apiaryio/apiary-client) server on port `8081`
-
-You can view more detailed information about these services in the `docker-compose.yml` file, but you shouldn't need to edit it unless you're intentionally contributing changes to our Docker workflow.
-
-#### Troubleshooting
-If you see an error like this at the bottom of the output:
+If you receive any errors like the following during `npm install`:
 
 ```shell
-Unchecked dependencies for environment dev:
-* httpoison (Hex package)
-  lock mismatch: the dependency is out of date (run "mix deps.get" to fetch locked version)
-** (Mix) Can't continue due to errors on dependencies
+npm ERR! Command failed: git -c core.longpaths=true fetch -a origin
+npm ERR! Permission denied (publickey).
+npm ERR! fatal: Could not read from remote repository.
+npm ERR!
+npm ERR! Please make sure you have the correct access rights
+npm ERR! and the repository exists.
 ```
 
-It means you need to fetch your dependencies:
-```shell
-docker-compose run web mix deps.get
-```
+you will need to [associate your ssh key with github](https://help.github.com/articles/generating-an-ssh-key/)
 
-Then re-run the previous command:
-```shell
-docker-compose build
-docker-compose up
-```
+## Verify it worked
 
-### Seed the database
-
-You'll probably want to seed the database. You can do this with the following command:
-
-```shell
-docker-compose run web mix run priv/repo/seeds.exs
-```
-
-### Verify it worked
-
-Point your browser (or make a direct request) to `http://api.localhost:49235/users`. You'll get the following response (although you might have data if you seeded the database):
-
-```json
-{
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "data": []
-}
-```
+Point your browser (or make a direct request) to `http://localhost:4200`. You should see the code corps website.
 
 ### Next steps
 
 Now that you're set up, you should [read more about how to develop with the API](USAGE.md).
 
-### Issues installing?
+## Issues installing?
 
 Having trouble?
 
 Create an issue in this repo and we'll look into it.
 
-Docker's a bit new for us, so there may be some hiccups at first. But hopefully this makes for a less painful developer environment for you in the long run.
+Feel free to drop by our [slack](https://codecorps.slack.com) with your questions!

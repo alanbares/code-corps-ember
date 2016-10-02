@@ -19,7 +19,7 @@ Our goals:
 
 We'd love to have you contribute to Code Corps directly!
 
-- First, read the guidelines in our [`CONTRIBUTING.md`](CONTRIBUTING.md).
+- First, read the guidelines in our [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 - Then check out some GitHub issues to see where you can help out.
 
 You can also always come :wave: hello [in our Slack](http://slack.codecorps.org), where there are always a ton of us around to help you learn, debug, or just shoot the breeze.
