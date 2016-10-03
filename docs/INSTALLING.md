@@ -4,7 +4,7 @@
 
 You will need to install the following: 
 
-- [Node.js/npm](https://docs.npmjs.com/getting-started/installing-node) we use the LTS version (v 4.4.7)
+- [Node.js/npm](https://docs.npmjs.com/getting-started/installing-node) we use the LTS branch
 - bower: `npm install -g bower`
 - ember-cli: `npm install -g ember-cli`
 
@@ -13,7 +13,6 @@ Do you use other versions of node.js? Check out [nvm](https://github.com/creatio
 ## Clone this repository
 
 You'll want to [clone this repository](https://help.github.com/articles/cloning-a-repository/) with `git clone https://github.com/code-corps/code-corps-ember.git`. If you plan on contributing, you'll want to fork it too!
-
 
 The directory structure will look like the following:
 
@@ -26,11 +25,11 @@ code-corps-ember/    # → Root folder for this project
 ...
 ```
 
-## Setup your dependencies
+## Install your dependencies
 
 > Note: We bind to ports 4200 for Ember and 49152 for livereloading. Make sure you aren't running anything else on these ports.
 
-Go to the `code-corps-ember/` directory and run:
+Go to the `code-corps-ember` directory and run:
 
 ```shell
 npm install

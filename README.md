@@ -4,7 +4,7 @@
 
 [![Code Climate](https://codeclimate.com/github/code-corps/code-corps-ember/badges/gpa.svg)](https://codeclimate.com/github/code-corps/code-corps-ember) [![CircleCI](https://circleci.com/gh/code-corps/code-corps-ember.svg?style=svg)](https://circleci.com/gh/code-corps/code-corps-ember) [![Dependency Status](https://david-dm.org/code-corps/code-corps-ember.svg)](https://david-dm.org/code-corps/code-corps-ember) [![devDependency Status](https://david-dm.org/code-corps/code-corps-ember/dev-status.svg)](https://david-dm.org/code-corps/code-corps-ember#info=devDependencies) [![Inline docs](http://inch-ci.org/github/code-corps/code-corps-ember.svg?branch=develop&style=shields)](http://inch-ci.org/github/code-corps/code-corps-ember) [![Slack Status](http://slack.codecorps.org/badge.svg)](http://slack.codecorps.org)
 
-This is the [Ember](http://emberjs.com) application powers the front-end website for the Code Corps platform.
+This is the [Ember](http://emberjs.com) web application for [codecorps.org](https://codecorps.org)
 
 Code Corps is an open source platform for building and funding public software with massive social impact.
 
@@ -37,9 +37,9 @@ Have everything installed and ready to work? Read [our usage guides](docs/USAGE.
 - [How do I interact with the app?](docs/USAGE.md#interacting-with-the-app)
 - [How do I stop and start the server?](docs/USAGE.md#stopping-and-starting-the-server)
 - [How do I run tests?](docs/USAGE.md#running-tests)
-- [How do I rebuild Ember?](docs/USAGE.md#rebuilding-docker-containers)
+- [How do I rebuild Ember?](docs/USAGE.md#rebuilding-ember)
 - [Do I need special environment variables?](docs/USAGE.md#environment)
-- [How do I push changes to GitHub?](docs/USAGE.md#pushing-changes)
+- [How do I generate and serve documentation?](docs/USAGE.md#generating-documentation)
 
 ## Documentation
 
